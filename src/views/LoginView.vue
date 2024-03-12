@@ -1,41 +1,40 @@
 <script setup>
-import axios from 'axios';
-import { ref } from 'vue';
+import axios from 'axios'
+import { ref } from 'vue'
 import '@/assets/styles/Login.scss'
-import router from '../router';
-import LoadingAnimation from '../components/LoadingAnimation.vue';
+import router from '../router'
+import LoadingAnimation from '../components/LoadingAnimation.vue'
 
-let loggedIn = ref(false);
+let loggedIn = ref(false)
 let invalidCredentials = ref(false)
 
 const user = ref({
   username: '',
   password: ''
-});
+})
 
 const submitForm = async () => {
-  loggedIn.value = true; // Set loading state to true before making the API call
+  loggedIn.value = true // Set loading state to true before making the API call
   try {
-    const response = await axios.post('http://localhost:8000/api/login', user.value);
+    const response = await axios.post('http://localhost:8000/api/login', user.value)
     localStorage.setItem('token', response.data.token)
     loggedIn.value = true
     invalidCredentials.value = false
 
     if (response.data.role === true) {
-      router.push('/admin');
+      router.push('/admin')
     } else {
-      router.push('/user');
+      router.push('/user')
     }
   } catch (error) {
-    if(error.response.status === 401) {
+    if (error.response.status === 401) {
       invalidCredentials.value = true
     }
-    console.log(error);
+    console.log(error)
   } finally {
-    loggedIn.value = false;
+    loggedIn.value = false
   }
-};
-
+}
 </script>
 
 <template>
@@ -44,12 +43,14 @@ const submitForm = async () => {
       <fieldset>
         <legend>Login</legend>
         <div>
-          <input type="text" name="" placeholder="username" v-model="user.username" required>
+          <input type="text" name="" placeholder="username" v-model="user.username" required />
         </div>
         <div>
-          <input type="password" name="" placeholder="password" v-model="user.password" required>
+          <input type="password" name="" placeholder="password" v-model="user.password" required />
         </div>
-        <p v-if="invalidCredentials" style="color: red; font-weight: bold;">Invalid Username or password</p>
+        <p v-if="invalidCredentials" style="color: red; font-weight: bold">
+          Invalid Username or password
+        </p>
         <button type="submit">Login</button>
         <RouterLink to="/signup">New member, signup</RouterLink>
         <div v-if="loggedIn">
@@ -57,6 +58,5 @@ const submitForm = async () => {
         </div>
       </fieldset>
     </form>
-
   </div>
 </template>

@@ -3,12 +3,12 @@
     <ProductView />
     <ProductImages />
   </div>
-  <FooterView/>
+  <FooterView />
 </template>
 
 <script setup>
-import ProductView from '../components/ProductDesc.vue';
-import ProductImages from '../components/ProductImages.vue';
+import ProductView from '../components/ProductDesc.vue'
+import ProductImages from '../components/ProductImages.vue'
 import FooterView from '../components/FooterView.vue'
 </script>
 

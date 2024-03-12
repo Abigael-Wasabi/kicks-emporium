@@ -6,13 +6,15 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #DDE0DC;
+  background-color: #dde0dc;
 
-  p, span {
+  p,
+  span {
     font-family: 'Raleway', sans-serif;
-    color: #6E7076;
+    color: #6e7076;
   }
-  a, button {
+  a,
+  button {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     color: #fff;
@@ -29,16 +31,21 @@ body {
     text-decoration: none;
     color: #312928;
     transition: 0.5s ease-in-out;
-     &:hover {
-      color: #A73B38;
-     }
+    &:hover {
+      color: #a73b38;
+    }
   }
 
   ul {
     list-style: none;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Montserrat', sans-serif;
   }
 }

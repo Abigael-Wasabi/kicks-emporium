@@ -1,73 +1,58 @@
-
 .images {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  .thumbnails {
+    display: grid;
     align-items: center;
-    gap: 0;
-    .thumbnails {
-        display: grid;
-        align-items: center;
-        gap: 10px;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        
-        img {
-            height: 130px;
-            width: 130px;
-            cursor: pointer;
-            border: 1px solid orange;
-            background-color: burlywood;
-            border-radius: 15px;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 30px;
 
-            &.active {
-                filter: blur(2px); 
-            }
-        }
+    img {
+      height: 130px;
+      width: 130px;
+      cursor: pointer;
+      border: 1px solid orange;
+      background-color: burlywood;
+      border-radius: 15px;
+
+      &.active {
+        filter: blur(2px);
+      }
     }
+  }
+}
+.main-images img {
+  height: 200px;
+  width: 200px;
+  margin-top: 30px;
+  // border-radius: 15px;
+  border: 2px solid transparent; 
+  border-image: linear-gradient(to right, orange, #ff0099); 
+  border-image-slice: 1;
 }
 
 @media screen and (max-width: 800px) {
-    .images {
-        .thumbnails {
-            align-items: flex-start;
-            img {
-                height: 50px;
-            }
-        }
-        .main-images {
-            img {
-                height: 300px;
-            }
-        }
+  .images {
+    .thumbnails {
+      align-items: flex-start;
+      grid-template-columns: repeat(3, 1fr);
+      img {
+        height: 130px;
+        width: 130px;
+      }
     }
+    .main-images {
+      img {
+        height: 200px;
+        width: 200px;
+        margin-top: 30px;
+      }
+    }
+  }
 }
 
-
-/* Styles for the images section */
-// .images {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// }
-
-// .main-images {
-//     display: grid;
-//     grid-template-columns: repeat(3, 1fr);
-//     gap: 10px;
-// }
-
-// .thumbnails {
-//     display: grid;
-//     grid-template-columns: repeat(3, 1fr);
-//     gap: 10px;
-// }
-// .thumbnails {
-//     display: grid;
-//     grid-template-columns: repeat(3, 1fr);
-//     gap: 10px;
-// }
-
-// .thumbnails:nth-child(1) {
-//     justify-content: center;
-// }
