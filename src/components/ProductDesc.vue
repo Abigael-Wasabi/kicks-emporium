@@ -23,17 +23,21 @@
     </article>
     <article class="cart">
       <button @click="addToCart" style="margin: 0 auto" class="addToCart">Add To Cart</button><br>
+      <!-- <button @click="openModal" style="margin: 0 auto" class="addToCart">Add To Cart</button><br> -->
     </article>
     <p style="margin: 0 auto; color:salmon" v-if="count > 0">
       <!-- <b>TOTAL: <span style="color:salmon">${{ total }}</span></b> -->
     </p>
+    <Modal :show="modalShow" />
   </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue' 
 import '@/assets/styles/ProductDesc.scss'
+import '@/components/ModalPop.vue'
 
+const modalShow = ref(false)
 const productName = ref('')
 const productPrice = ref(0)
 const count = ref(0)
@@ -56,10 +60,14 @@ function toggle(index) {
   active.value = active.value.map((value, i) => i === index)
 }
 
+// function openModal() {
+//   modalShow.value = true
+// }
 function addToCart() {
   // Add logic to add the product to the cart
+  window.alert("Added to cart. Thanks for shopping with us");
 }
-</script>
 
+</script>
 
 
